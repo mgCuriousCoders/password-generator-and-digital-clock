@@ -100,11 +100,11 @@ document.querySelector(".reset-show-hide");
 
 //? Toggle Function
 function showHide() {
-  if (showOrHideBtn.textContent == "Show Password") {
-    showOrHideBtn.textContent = "Hide Password";
-    input.setAttribute("type", "password");
-  } else if (showOrHideBtn.textContent == "Hide Password") {
+  if (showOrHideBtn.textContent == "Hide Password") {
     showOrHideBtn.textContent = "Show Password";
+    input.setAttribute("type", "password");
+  } else if (showOrHideBtn.textContent == "Show Password") {
+    showOrHideBtn.textContent = "Hide Password";
     input.setAttribute("type", "text");
   }
 }
