@@ -22,7 +22,7 @@ function showTime() {
 }
 showTime();
 
-//? ..............PASSWORT GENARATOT................................
+//? ..............PASSWORT GENARATOR................................
 
 function getRandomLower() {
   return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
@@ -59,26 +59,41 @@ function generatePassword() {
 const input = document.getElementById("password");
 const generate = document.getElementById("generate");
 const isCopySuccess = document.querySelector(".copy-success");
+const errorMsg = document.querySelector(".error-msg");
+let date = new Date().getFullYear();
+
+//? Generate button
 generate.addEventListener("click", (e) => {
   input.value = "";
   generatePassword();
   input.value = generatePassword();
+  copy.disabled = false;
 });
 
+//? ...........COPY PASSWORD..................
 const copy = document.getElementById("copy");
 copy.addEventListener("click", () => {
   if (input.value == "") {
-    input.value = "No value here, please click reset and generate button";
+    errorMsg.innerText =
+      "Ther is no value, please click reset and generate button";
     copy.disabled = true;
+    setTimeout(() => {
+      errorMsg.innerText = "";
+    }, 2500);
   } else {
     navigator.clipboard.writeText(input.value).then(
-      (success) => (isCopySuccess.innerText = "Text Copied"),
+      (success) =>
+        (isCopySuccess.innerText = "Text Copied").then(
+          setTimeout(() => {
+            isCopySuccess.innerText = "";
+          }, 1000)
+        ),
       (err) => (isCopySuccess.innerText = "Error text copying")
     );
   }
 });
 
-//?........................................
+//?..............SHOW OR HIDE PASSWORD.................
 let showOrHideBtn = document.getElementById("show-hide");
 const resetBtn = document.getElementById("reset");
 document.querySelector(".reset-show-hide");
@@ -100,14 +115,13 @@ document.querySelector(".reset-show-hide").addEventListener("click", (e) => {
   }
   if (e.target.classList.contains("reset-btn")) {
     input.value = "";
-    isCopySuccess.innerText = "";
+    errorMsg.innerText = "";
     copy.disabled = false;
   }
 });
 
-date = new Date().getFullYear();
-setTimeout(() => {
-  document.querySelector(
-    ".copy-right"
-  ).innerText = `Coded by MG Curious Coders ${date}©`;
-}, 3000);
+//? Footer yazısı
+
+document.querySelector(
+  ".copy-right"
+).innerText = `Coded by MG Curious Coders ${date}©`;

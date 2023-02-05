@@ -15,21 +15,23 @@
     <title>Password Generator</title>
   </head>
   <body>
+   
     <div class="box" id="box">
       <h2 id="digital-clock">Saat</h2>
       <h1>Random Password Generator</h1>
+      <span class="error-msg"></span>
+      <div class="input-div">
       <input
-        type="text"
-        id="password"
-        placeholder="Click to generate password!"
-      />
+      type="text"
+      id="password"
+      placeholder="Click to generate password!"
+    />
+  </div>
       <div class="buttons">
         <button class="btn" id="generate">Generate</button>
-    
         <button class="btn" id="copy">
           Copy <i class="fa-solid fa-paste"></i>
           <span class="copy-success"></span>
-          
         </div>
           <div class="buttons reset-show-hide">
             <button class="btn show-btn" id="show-hide">Show Password</button>
@@ -38,7 +40,7 @@
           </div>
           <div class="copy-right"> </div>
         </div> 
-        
+       
     
    
     <script src="app.js"></script>
