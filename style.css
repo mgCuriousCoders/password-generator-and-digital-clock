@@ -91,7 +91,7 @@ input {
   color: whitesmoke;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 400px) {
   body {
     background-color: hsl(279, 19%, 79%);
     display: flex;
